@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTribe - Dark Pastel Fitness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>💪 FitTribe Pune</h1>
+        <nav>
+            <a href="#dashboard" class="nav-link active" data-view="dashboard">Dashboard</a>
+            <a href="#activities" class="nav-link" data-view="activities">Pune Activities</a>
+            <a href="#resources" class="nav-link" data-view="resources">Resources & Workshops</a>
+            <a href="#profile" class="nav-link" data-view="profile">My Profile</a>
+        </nav>
+    </header>
+
+    <main class="app-container">
+        
+        <div id="dashboard" class="view active-view">
+            <h2 class="view-title">Welcome Back, Alex!</h2>
+            <div class="dashboard-grid">
+                
+                <section class="panel quick-profile">
+                    <h3>Your Weekly Goal</h3>
+                    <div class="progress-bar-container">
+                        <h4 id="weekly-goal-status">Goal: 50.0 / 80 km Walked/Run</h4>
+                        <div class="progress-bar"><div id="weekly-progress" class="progress-fill" style="width: 62.5%;"></div></div>
+                    </div>
+                    <button class="btn btn-primary log-workout-btn">Log New Activity</button>
+                    <button class="btn btn-secondary" id="change-goal-btn">Change Goal</button>
+                </section>
+
+                <section class="panel calendar-snippet">
+                    <h3>Upcoming Sessions</h3>
+                    <div id="session-schedule" class="session-schedule-list">
+                        </div>
+                </section>
+
+                <section class="panel local-groups">
+                    <h3>Local Groups</h3>
+                    <div id="group-list" class="groups-container">
+                        </div>
+                    <button class="btn btn-secondary view-btn" data-target="activities">Check Pune Activities</button>
+                </section>
+
+                <section class="panel progress-snippet">
+                    <h3>7-Day Distance Trend</h3>
+                    <div id="progress-chart-snippet" class="chart-container">
+                        <div class="chart-simulation">
+                            </div>
+                        <p class="chart-label">Distance (km)</p>
+                    </div>
+                </section>
+
+                <aside class="panel challenge-feed">
+                    <h3>Recent Wins</h3>
+                    <div id="feed-container">
+                        <div class="social-post">
+                            <h4>🔥 Sam just completed the Iron-Man Challenge!</h4>
+                            <p class="post-meta">Shared 5 mins ago</p>
+                            <button class="btn-like">👍 Like (12)</button>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+        
+        <div id="activities" class="view hidden-view">
+            <h2 class="view-title">Pune Local Fitness Calendar ☀</h2>
+            
+            <section class="panel today-activities-panel">
+                <h3>Today's Highlights</h3>
+                <div id="today-activities-list" class="activities-grid">
+                    </div>
+            </section>
+            
+            <section class="panel upcoming-activities-panel">
+                <h3>Upcoming Group Activities</h3>
+                <ul id="upcoming-activities-list" class="activity-list">
+                    </ul>
+                <button class="btn btn-primary">Start a New Activity</button>
+            </section>
+        </div>
+
+
+        <div id="resources" class="view hidden-view">
+            <h2 class="view-title">Fitness Resources & Workshops 📚</h2>
+            
+            <section class="panel">
+                <h3>Upcoming Workshops</h3>
+                <div id="workshops-list" class="matches-list">
+                    </div>
+            </section>
+            
+            <section class="panel">
+                <h3>Articles & Guides</h3>
+                <div id="articles-list" class="matches-list">
+                    </div>
+            </section>
+        </div>
+
+        <div id="profile" class="view hidden-view">
+            <h2 class="view-title">My Fitness Profile & Progress</h2>
+            
+            <div class="profile-layout-grid">
+
+                <div class="profile-logs-column">
+                    <section class="panel user-details-panel">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/150" alt="User Photo" id="user-photo">
+                            <h3 id="user-name">Alex Johnson (Level 3)</h3>
+                        </div>
+                        
+                        <div class="profile-stats">
+                            <p><strong>Goal:</strong> <span id="user-goal">Muscle Gain</span></p>
+                            <p><strong>Preferences:</strong> <span id="user-pref">Gym, Running, HIIT</span></p>
+                            <p><strong>Workouts Logged:</strong> <span id="user-workouts-logged">52</span></p>
+                        </div>
+                        
+                        <button class="btn btn-primary edit-profile-btn" id="open-edit-profile-btn">Edit Details</button>
+                    </section>
+                    
+                    <section class="panel recent-activity-panel" style="margin-top: 30px;">
+                        <h3>Recent Activity</h3>
+                        <ul id="activity-log-list" class="activity-list">
+                            </ul>
+                    </section>
+                </div>
+
+                <div class="detailed-progress-panel">
+                    <section class="panel fitness-stats-panel">
+                        <h3>Detailed Running Stats</h3>
+                        <div class="stats-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="stat-card">
+                                <h4>Avg Running Pace</h4>
+                                <p class="stat-value" id="avg-pace">5:30 min/km</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Last PR (Long Run)</h4>
+                                <p class="stat-value" id="last-pr">15 km</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Weekly Goal Streak</h4>
+                                <p class="stat-value" id="streak">3 Weeks</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Total Distance Covered</h4>
+                                <p class="stat-value" id="total-distance">450 km</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="panel goal-breakdown-panel">
+                        <h3>Muscle Gain Progress</h3>
+                        <div class="progress-bar-container">
+                            <h4>Current Phase: Strength (80% Complete)</h4>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 80%; background-color: var(--accent-color);"></div></div>
+                        </div>
+                        <ul class="progress-breakdown-list">
+                            <li>Weight: 75.2 kg (Target: 78 kg)</li>
+                            <li>Bicep Measure: 15 in (+0.5 in)</li>
+                            <li>Protein Intake Goal: 7/7 days hit</li>
+                        </ul>
+                    </section>
+                </div> 
+
+            </div> 
+        </div>
+
+        <div id="detail-popup" class="popup-overlay hidden">
+            <div class="popup-content activity-detail-content">
+                <button class="close-popup">&times;</button>
+                <h3 id="detail-title">Activity Details</h3>
+                
+                <div id="detail-body">
+                    </div>
+                
+                <button class="btn btn-secondary rsvp-btn">RSVP/Join</button>
+            </div>
+        </div>
+
+        <div id="form-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <h3>Log New Activity</h3>
+                <form id="workout-form">
+                    <label for="distance">Distance (km) walked/run:</label>
+                    <input type="number" id="distance" required min="0.1" step="0.1" placeholder="e.g., 5.5">
+                    <label for="duration">Duration (mins):</label>
+                    <input type="number" id="duration" required min="1" placeholder="e.g., 30">
+                    <p id="form-error" class="error-message hidden">Please enter valid, positive numbers.</p>
+                    <button type="submit" class="btn btn-primary">Submit Log</button>
+                    <button type="button" class="btn btn-secondary close-popup">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="goal-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <h3>Set New Weekly Goal</h3>
+                <form id="goal-form">
+                    <label for="new-goal-km">Goal Distance (km) for the week:</label>
+                    <input type="number" id="new-goal-km" required min="1" step="1" placeholder="e.g., 80">
+                    <p id="goal-error" class="error-message hidden">Please enter a valid goal.</p>
+                    <button type="submit" class="btn btn-primary">Save Goal</button>
+                    <button type="button" class="btn btn-secondary close-popup">Cancel</button>
+                </form>
+            </div>
+        </div>
+        
+        <div id="edit-profile-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <h3>Edit Your Profile Details</h3>
+                <form id="edit-profile-form">
+                    <label for="edit-name">Name:</label>
+                    <input type="text" id="edit-name" required>
+                    
+                    <label for="edit-goal">Primary Goal:</label>
+                    <input type="text" id="edit-goal" required>
+                    
+                    <label for="edit-pref">Preferences (e.g., Gym, Running):</label>
+                    <input type="text" id="edit-pref" required>
+                    
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-secondary close-popup">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FitTribe. Fuel your fitness journey!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
