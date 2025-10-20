@@ -177,6 +177,10 @@ nav .nav-link.active {
     margin-top: 10px;
     display: block; 
 }
+.profile-logs-column .btn-secondary {
+    margin-left: 0;
+    margin-top: 10px;
+}
 
 
 .btn:hover {
@@ -475,9 +479,10 @@ nav .nav-link.active {
     color: var(--primary-color);
 }
 
-.rsvp-btn {
+.rsvp-btn, .leave-event-btn {
     margin-top: 20px;
     width: 100%;
+    margin-left: 0 !important; /* Override button spacing for full width */
 }
 
 /* Form Input Styling for Dark Mode */
@@ -497,6 +502,28 @@ nav .nav-link.active {
     color: var(--accent-color);
     margin-bottom: 15px;
 }
+
+/* Social Feed Like Button (Custom Style) */
+.btn-like {
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+.btn-like:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.social-post {
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
 
 /* Footer */
 footer {
